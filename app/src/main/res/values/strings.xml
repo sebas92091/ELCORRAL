@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">EL CORRAL</string>
+    <string name="MiPerfil">Mi Perfil</string>
+    <string name="Principal">Principal</string>
+    <string name="Usuario">Usuario</string>
+    <string name="Contrasena">Password</string>
+    <string name="Loggin">Loggin</string>
+    <string name="noCuenta">¿No tiene una Cuenta?</string>
+    <string name="Registrarse"> <u>Registrarse</u> </string>
+    <string name="Correo"> Correo </string>
+    <string name="aceptar"> Aceptar </string>
+    <string name="cancelar"> Cancelar </string>
+    <string name="faltan_datos">Faltan datos</string>
+    <string name="PasswordNoCoincide">Password no coincide</string>
+    <string name="incorrecto">Usuario o Password incorrecto</string>
+</resources>
