@@ -33,10 +33,6 @@ public class MiPerfilActivity extends AppCompatActivity {
        // tCorreo.setText(extras.getString("Correo"));
     }
 
-
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu,menu);
@@ -49,9 +45,6 @@ public class MiPerfilActivity extends AppCompatActivity {
         switch (id){
             case R.id.MiPerfil:
 
-
-
-
                 break;
             case R.id.Principal:
                 Intent a = new Intent(this,MainActivity.class);
@@ -59,6 +52,11 @@ public class MiPerfilActivity extends AppCompatActivity {
                 startActivity(a);
                 finish();
                 break;
+            case R.id.Productos:
+                startActivity(new Intent(this,ClasificacionProductos.class));
+                finish();
+                break;
+
         }
 
         return super.onOptionsItemSelected(item);

@@ -6,6 +6,7 @@
 	<color name="FondoMainActivity">#f7eabe</color>
 	<color name="LetrasMainActivity">#361f13</color>
 	<color name="colorAmarillo_CorralDark">#EC8000</color>
+	<color name="colorCafe_Corral">#49190b</color>
 	<color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>

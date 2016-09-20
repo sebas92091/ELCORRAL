@@ -34,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.Principal:
 
                 break;
+            case R.id.Productos:
+                startActivity(new Intent(this,ClasificacionProductos.class));
+                finish();
+                break;
         }
 
         return super.onOptionsItemSelected(item);

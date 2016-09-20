@@ -7,4 +7,7 @@
     <item
         android:id="@+id/Principal"
         android:title="@string/Principal"/>
+    <item
+        android:id="@+id/Productos"
+        android:title="@string/Productos"/>
 </menu>
