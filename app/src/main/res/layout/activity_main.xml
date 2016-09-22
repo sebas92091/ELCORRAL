@@ -26,7 +26,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/uno1"
+                    android:src="@drawable/lo_nuevo"
                     android:scaleType="fitXY"/>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -37,12 +37,13 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/uno4"
-                        android:scaleType="fitXY"/>
+                        android:scaleType="fitXY"
+                        android:src="@drawable/calma_el_hambre"/>
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/media_libra"/>
+                        android:scaleType="fitXY"
+                        android:src="@drawable/calma_el_hambre2"/>
                 </LinearLayout>
                <LinearLayout
                    android:layout_width="match_parent"
@@ -53,65 +54,33 @@
                    <ImageView
                        android:layout_width="match_parent"
                        android:layout_height="match_parent"
-                       android:src="@drawable/dos1"/>
+                       android:scaleType="fitXY"
+                       android:src="@drawable/calma_el_hambre3"/>
                    <ImageView
                        android:layout_width="match_parent"
                        android:layout_height="match_parent"
-                       android:src="@drawable/tres_cuartos_de_libra"/>
+                       android:scaleType="fitXY"
+                       android:src="@drawable/calma_el_hambre4"/>
+                   <ImageView
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:scaleType="fitXY"
+                       android:src="@drawable/calma_el_hambre5"/>
                </LinearLayout>
-                <LinearLayout
+               <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:background="@drawable/fondo3">
+                   android:background="@drawable/fondo2">
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/tres1"/>
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/casera"/>
+                        android:scaleType="fitXY"
+                        android:src="@drawable/disponible"/>
+
+
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/fondo3">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/cuatro1"/>
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/corralisima"/>
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/vaqueros"
-                    android:scaleType="fitXY"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/fondo3">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/cinco1"/>
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/vaquero"/>
-                </LinearLayout>
-
 
             </LinearLayout>
 

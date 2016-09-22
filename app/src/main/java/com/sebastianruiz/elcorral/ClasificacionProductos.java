@@ -52,6 +52,12 @@ public class ClasificacionProductos extends AppCompatActivity {
         tab = actionBar.newTab().setIcon(R.drawable.vaqueros_icon).setTabListener(tabListener);
         actionBar.addTab(tab);
 
+        tab=actionBar.newTab().setIcon(R.drawable.postres_icon).setTabListener(tabListener);
+        actionBar.addTab(tab);
+
+        tab=actionBar.newTab().setIcon(R.drawable.tambien_disfruta_icon).setTabListener(tabListener);
+        actionBar.addTab(tab);
+
         mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
             @Override
             public  void onPageSelected(int position){
@@ -71,6 +77,8 @@ public class ClasificacionProductos extends AppCompatActivity {
             switch (position){
                 case 0:return new HamburguesaFragment();
                 case 1:return new VaqueroFragment();
+                case 2:return new PostresFragment();
+                case 3:return new OtrosFragment();
                 default:return null;
             }
 
@@ -78,7 +86,7 @@ public class ClasificacionProductos extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 2;
+            return 4;
         }
     }
 
