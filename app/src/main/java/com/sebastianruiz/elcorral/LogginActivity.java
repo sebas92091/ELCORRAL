@@ -1,6 +1,8 @@
 package com.sebastianruiz.elcorral;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +16,8 @@ public class LogginActivity extends AppCompatActivity {
     EditText eUsuario, ePassword;
     Button bLoggin;
     String usuario= " ", password =" ", correo= " ";
+    String PREFS_NAME = "MyPrefsFile";
+    SharedPreferences datos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +27,7 @@ public class LogginActivity extends AppCompatActivity {
         eUsuario = (EditText) findViewById(R.id.usuario);
         ePassword = (EditText) findViewById(R.id.contrasena);
         bLoggin = (Button) findViewById(R.id.loggin);
+        datos = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
 
 
@@ -58,6 +63,10 @@ public class LogginActivity extends AppCompatActivity {
         }
         else {
             Intent intent = new Intent(this,MainActivity.class);
+
+            SharedPreferences.Editor edit = datos.edit();
+            edit.putInt("Loggeado",1);
+            edit.commit();
             startActivity(intent);
             finish();
         }

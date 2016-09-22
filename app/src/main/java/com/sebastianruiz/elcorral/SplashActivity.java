@@ -1,7 +1,9 @@
 package com.sebastianruiz.elcorral;
 
 import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,12 +14,14 @@ import java.util.TimerTask;
 
 public class SplashActivity extends AppCompatActivity {
     private  static final long SPLASH_DELAY = 2000;
-
-
+    String PREFS_NAME = "MyPrefsFile";
+    SharedPreferences datos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+         datos = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//Establece el modo
         //ActionBar a = getActionBar();//ocultar actionBar
@@ -28,9 +32,18 @@ public class SplashActivity extends AppCompatActivity {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                Intent i =new Intent().setClass(SplashActivity.this, LogginActivity.class);
-                startActivity(i);
-                finish();
+
+                if (datos.getInt("Loggeado",-1) == 1){
+                    Intent i =new Intent().setClass(SplashActivity.this, MainActivity.class);
+                    startActivity(i);
+                    finish();
+                }
+                else {
+
+                    Intent i =new Intent().setClass(SplashActivity.this, LogginActivity.class);
+                    startActivity(i);
+                    finish();
+                }
             }
         };
         Timer timer =new Timer();
