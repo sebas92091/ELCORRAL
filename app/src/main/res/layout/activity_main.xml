@@ -79,7 +79,6 @@
                         android:scaleType="fitXY"
                         android:src="@drawable/disponible"/>
 
-
                 </LinearLayout>
 
             </LinearLayout>
