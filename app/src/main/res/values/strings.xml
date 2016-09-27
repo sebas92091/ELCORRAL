@@ -14,4 +14,8 @@
     <string name="PasswordNoCoincide">Password no coincide</string>
     <string name="incorrecto">Usuario o Password incorrecto</string>
     <string name="Productos">Productos</string>
+    <string name="CerrarSesion">Cerrar Sesion</string>
+    <string name="abierto">abierto</string>
+    <string name="cerrado">cerrado</string>
+
 </resources>

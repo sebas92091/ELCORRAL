@@ -1,18 +1,95 @@
 package com.sebastianruiz.elcorral;
 
+import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private   Lista_DrawerLayout[] menuDrawer ;
+    private ListView lst;
+    private DrawerLayout drawerlayout;
+    private ActionBarDrawerToggle drawerToggle;
+    private String[] opcion  = new String[]{"Perfil","principal","Salir"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        menuDrawer = new Lista_DrawerLayout[]{
+                new Lista_DrawerLayout(R.drawable.ic_perfil,getString(R.string.MiPerfil)),
+                new Lista_DrawerLayout(R.drawable.ic_stars,getString(R.string.Principal)),
+                new Lista_DrawerLayout(R.drawable.ic_list,getString(R.string.Productos)),
+                new Lista_DrawerLayout(R.drawable.ic_exit,getString(R.string.CerrarSesion))
+
+
+        };
+          ActionBar actionBar = getSupportActionBar();
+          if (actionBar != null){
+             actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
+             actionBar.setDisplayHomeAsUpEnabled(true);
+         }
+
+        drawerlayout = (DrawerLayout) findViewById(R.id.contenedorPrincipal);
+        lst =(ListView) findViewById(R.id.menu_izq);
+
+        DrawerAdapter adapter = new DrawerAdapter(this,menuDrawer);
+        lst.setAdapter(adapter);
+
+        lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Fragment fragment = null;
+                switch (position){
+
+                    case 0:
+                        Log.d("pefil", " si ");
+                        break;
+                    case 1:
+                        Log.d("ppal", " si ");
+                        break;
+                    case 2:
+                        Log.d("productos", " si ");
+                        break;
+                    case 3:
+                        Log.d("cerrar", " si ");
+                        break;
+                    default:
+                        break;
+                }
+                lst.setItemChecked(position,true);
+                drawerlayout.closeDrawer(lst);
+            }
+        });
+
+        drawerToggle = new ActionBarDrawerToggle(this,drawerlayout,R.string.abierto,R.string.cerrado){
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+            }
+        };
+        drawerlayout.setDrawerListener(drawerToggle);
+
 
     }
 
@@ -39,6 +116,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this,ClasificacionProductos.class));
                 finish();
                 break;
+            case android.R.id.home:
+                drawerlayout.openDrawer(Gravity.LEFT);
+                Log.d("click menu", "si ");
+                return true;
+
+
         }
 
         return super.onOptionsItemSelected(item);

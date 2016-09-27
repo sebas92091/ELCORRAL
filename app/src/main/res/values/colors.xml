@@ -4,6 +4,7 @@
 
 	<color name="colorAmarillo_Corral">#FDAE00</color>
 	<color name="FondoMainActivity">#f7eabe</color>
+	<color name="transparent">#00ff0000</color>
 	<color name="LetrasMainActivity">#361f13</color>
 	<color name="colorAmarillo_CorralDark">#EC8000</color>
 	<color name="colorCafe_Corral">#49190b</color>
