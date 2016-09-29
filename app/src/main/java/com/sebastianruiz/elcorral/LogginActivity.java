@@ -40,6 +40,12 @@ public class LogginActivity extends AppCompatActivity {
             }
         });
 
+        SharedPreferences datos = getSharedPreferences("MyPrefsFile", Context.MODE_PRIVATE);
+        usuario = datos.getString("usuario","-1");
+        password = datos.getString("password","-1");
+
+
+
 
     }
 

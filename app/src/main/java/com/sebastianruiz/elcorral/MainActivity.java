@@ -2,7 +2,9 @@ package com.sebastianruiz.elcorral;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -25,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private ListView lst;
     private DrawerLayout drawerlayout;
     private ActionBarDrawerToggle drawerToggle;
-    private String[] opcion  = new String[]{"Perfil","principal","Salir"};
+
+   // private String[] opcion  = new String[]{"Perfil","principal","Salir"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,20 +61,36 @@ public class MainActivity extends AppCompatActivity {
                 switch (position){
 
                     case 0:
+                        fragment = new MiPerfilActivity();
                         Log.d("pefil", " si ");
                         break;
                     case 1:
                         Log.d("ppal", " si ");
                         break;
                     case 2:
+                        fragment = new ClasificacionProductos();
                         Log.d("productos", " si ");
                         break;
                     case 3:
+
+                        //SharedPreferences datos;
+                        SharedPreferences datos = getSharedPreferences("MyPrefsFile", Context.MODE_PRIVATE);
+                        Intent intent = new Intent(getBaseContext(),LogginActivity.class);
+
+                        SharedPreferences.Editor edit = datos.edit();
+                        edit.putInt("Loggeado",-1);
+                        edit.commit();
+                        startActivity(intent);
+
                         Log.d("cerrar", " si ");
+                        Log.d("loggeado", String.valueOf(datos.getInt("Loggeado",-1)));
+                        finish();
                         break;
                     default:
                         break;
                 }
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.contenedorFrame,fragment).commit();
                 lst.setItemChecked(position,true);
                 drawerlayout.closeDrawer(lst);
             }

@@ -3,62 +3,51 @@ package com.sebastianruiz.elcorral;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class MiPerfilActivity extends AppCompatActivity {
+public class MiPerfilActivity extends Fragment { //AppCompatActivity
     TextView tNombre,tCorreo,tPassword;
     String PREFS_NAME = "MyPrefsFile";
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mi_perfil);
+    public View onCreateView(LayoutInflater inflater,  ViewGroup container,
+                             Bundle savedInstanceState) {
 
-        tNombre = (TextView) findViewById(R.id.PerfilUsuario);
-        tPassword = (TextView) findViewById(R.id.PerfilPasswors);
-        tCorreo = (TextView) findViewById(R.id.PerfilCorreo);
+        return inflater.inflate(R.layout.activity_mi_perfil, container, false);
 
-        //Bundle extras = getIntent().getExtras();
-        SharedPreferences datos = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        tNombre = (TextView) view.findViewById(R.id.PerfilUsuario);
+        tPassword = (TextView) view.findViewById(R.id.PerfilPasswors);
+        tCorreo = (TextView) view.findViewById(R.id.PerfilCorreo);
+
+
+        SharedPreferences datos = this.getActivity().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         String Usuario = ": "+datos.getString("usuario","");
         String Password = ": "+datos.getString("password","");
         String Correo = ": "+datos.getString("correo","");
+        Log.d("Usuario", Usuario);
+        Log.d("Password", Password);
+        Log.d("Correo", Correo);
         tNombre.setText(getString(R.string.Usuario)+Usuario);
         tPassword.setText(getString(R.string.Contrasena)+Password);
         tCorreo.setText(getString(R.string.Correo)+Correo);
-
-       // tCorreo.setText(extras.getString("Correo"));
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id){
-            case R.id.MiPerfil:
-
-                break;
-            case R.id.Principal:
-                Intent a = new Intent(this,MainActivity.class);
-
-                startActivity(a);
-                finish();
-                break;
-            case R.id.Productos:
-                startActivity(new Intent(this,ClasificacionProductos.class));
-                finish();
-                break;
-
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }
+
+

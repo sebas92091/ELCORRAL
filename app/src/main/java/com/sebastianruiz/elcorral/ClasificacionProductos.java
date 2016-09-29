@@ -1,35 +1,55 @@
 package com.sebastianruiz.elcorral;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.content.Intent;
+import android.app.Activity;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.view.ViewGroup;
+
 //
-public class ClasificacionProductos extends AppCompatActivity {
+public class ClasificacionProductos extends Fragment { //AppCompatActivity
 
     private ViewPager mViewPager;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_clasificacion_productos);
+    private FragmentActivity myContext;
+    ActionBar actionBar;
 
-        PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager());
-        mViewPager = (ViewPager) findViewById(R.id.ClasificacionProductos);
+    @Override
+    public View onCreateView(LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.activity_clasificacion_productos,container,false);
+    }
+
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        myContext = (FragmentActivity) activity;
+
+
+    }
+
+    @Override
+    public void onActivityCreated( Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        //   ((ActionBarActivity) this.getActivity()).getSupportActionBar();
+        actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+        PagerAdapter pagerAdapter = new PagerAdapter(myContext.getSupportFragmentManager());
         mViewPager.setAdapter(pagerAdapter);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+
+        //ActionBar actionBar = getSupportActionBar();
+        //actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
 
         ActionBar.TabListener tabListener = new   ActionBar.TabListener(){
             @Override
@@ -58,13 +78,24 @@ public class ClasificacionProductos extends AppCompatActivity {
         tab=actionBar.newTab().setIcon(R.drawable.tambien_disfruta_icon).setTabListener(tabListener);
         actionBar.addTab(tab);
 
-        mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
-            @Override
-            public  void onPageSelected(int position){
-                getSupportActionBar().setSelectedNavigationItem(position);
-            }
-        });
+          mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
+             @Override
+           public  void onPageSelected(int position){
+             actionBar.setSelectedNavigationItem(position);
+        }
+         });
+
+
+
     }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        mViewPager = (ViewPager) view.findViewById(R.id.ClasificacionProductos);
+    }
+
 
     public class PagerAdapter extends FragmentPagerAdapter{
 
@@ -88,35 +119,6 @@ public class ClasificacionProductos extends AppCompatActivity {
         public int getCount() {
             return 4;
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id){
-            case R.id.MiPerfil:
-               // Intent a = new Intent(this,MiPerfilActivity.class);
-                startActivity(new Intent(this,MiPerfilActivity.class));
-                finish();
-                break;
-            case R.id.Principal:
-                //Intent b = new Intent(this,MainActivity.class);
-
-                startActivity(new Intent(this,MainActivity.class));
-                finish();
-                break;
-            case R.id.Productos:
-
-                break;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
 

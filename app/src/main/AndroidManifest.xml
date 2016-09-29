@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
-        <activity android:name=".MiPerfilActivity" />
+       <!-- <activity android:name=".MiPerfilActivity" /> -->
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
@@ -21,7 +21,7 @@
         </activity>
         <activity android:name=".LogginActivity" />
         <activity android:name=".RegistroActivity" />
-        <activity android:name=".ClasificacionProductos" />
+      <!--  <activity android:name=".ClasificacionProductos" />  -->
     </application>
 
 </manifest>

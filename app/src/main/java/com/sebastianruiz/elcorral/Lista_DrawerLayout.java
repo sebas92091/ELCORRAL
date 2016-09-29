@@ -3,7 +3,7 @@ package com.sebastianruiz.elcorral;
 /**
  * Created by SEBASTIAN on 25/09/2016.
  */
-public class Lista_DrawerLayout {
+public class Lista_DrawerLayout  {
     private int idIcon;
     private String Opcion;
 
