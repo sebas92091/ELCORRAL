@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout
+    xmlns:app= "http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/contenedorPrincipal"
+    android:fitsSystemWindows="true"
     tools:context="com.sebastianruiz.elcorral.MainActivity">
+<!--android:fitsSystemWindows="true" -->
 
-    <FrameLayout
-        android:layout_width="match_parent"
+
+
+    <!-- Contenido Principal -->
+    <include layout="@layout/contenido_principal" />
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navview"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/contenedorFrame">
+        android:fitsSystemWindows="true"
+        android:layout_gravity="start"
+        app:menu="@menu/drawer_menu"
+        app:headerLayout="@layout/header_drawer"
+        />
+    <!-- app:headerLayout="@layout/header_navview" -->
 
-    </FrameLayout>
 
-
-
-    <ListView
-        android:layout_width="240dp"
-        android:layout_height="match_parent"
-        android:id="@+id/menu_izq"
-        android:choiceMode="singleChoice"
-        android:foregroundGravity="left"
-        android:divider="@color/transparent"
-        android:background="@color/white"
-        android:layout_gravity="start">
-
-    </ListView>
 
 
 </android.support.v4.widget.DrawerLayout>

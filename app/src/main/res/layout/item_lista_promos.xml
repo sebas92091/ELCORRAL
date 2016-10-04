@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    card_view:cardCornerRadius="4dp"
+    card_view:cardElevation="4dp"
+    card_view:cardUseCompatPadding="true">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/FondoMainActivity">
+    
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/image_Promo"
+            android:scaleType="centerCrop"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/precio_Promo"
+            android:layout_gravity="left|bottom"
+            android:layout_marginBottom="32dp"
+            android:paddingLeft="2dp"
+            android:text="Large Text"
+            android:textColor="@color/white"
+            android:textSize="48dp"
+            android:textStyle="italic"/>
+        <TextView
+            android:id="@+id/nombre_Promo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|bottom"
+            android:paddingBottom="16dp"
+            android:paddingLeft="16dp"
+            android:text="Medium Text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@android:color/white" />
+    </FrameLayout>
+
+</android.support.v7.widget.CardView>

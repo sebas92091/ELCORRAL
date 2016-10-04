@@ -1,0 +1,26 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whitesmoke"
+    tools:context=".fragment_Promociones">
+
+
+    <TextView
+        android:id="@+id/tPromo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="@string/Promociones"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/LetrasMainActivity" />
+
+    <ListView
+        android:id="@+id/rPromo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</FrameLayout>

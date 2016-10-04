@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">EL CORRAL</string>
     <string name="MiPerfil">Mi Perfil</string>
-    <string name="Principal">Principal</string>
+    <string name="Principal">Inicio</string>
     <string name="Usuario">Usuario</string>
     <string name="Contrasena">Password</string>
     <string name="Loggin">Loggin</string>
@@ -13,9 +13,28 @@
     <string name="faltan_datos">Faltan datos</string>
     <string name="PasswordNoCoincide">Password no coincide</string>
     <string name="incorrecto">Usuario o Password incorrecto</string>
-    <string name="Productos">Productos</string>
+    <string name="Productos">Menu</string>
     <string name="CerrarSesion">Cerrar Sesion</string>
     <string name="abierto">abierto</string>
     <string name="cerrado">cerrado</string>
+
+    <!-- descripcion promociones-->
+    <string name="corralisimaMediaLibra_promo">Media libra de carne de res asada a
+        la parilla, con salsa BBQ.</string>
+    <string name="corralisima_promo">Tres cuartos de libra canre de res asada a la
+        parrila, con salsa BBQ.</string>
+    <string name="brownieConHelado_promo">Con cobertura de chocolate o arequipe,
+        acompañado de una bola de helado y hojuelas de chocolate.</string>
+    <string name="anillosDeCebolla_promo">Crocantes anillos de cebolla apanados.</string>
+    <string name="malteadaMediana_promo">Chocolate, Chocolate Ligtht, Frutos del Bosque
+        Light, Macadamia, Café,Café Mocca, Fresa, Vainilla, Piña,Arequipe.
+        Preparadas con helado super premium Von Glacet Para disfrutar con cuchara.</string>
+
+
+    <string name="Promociones">Promociones</string>
+    <string name="hUsuario">Usuario</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
