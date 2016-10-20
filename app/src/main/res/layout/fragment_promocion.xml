@@ -15,7 +15,18 @@
            android:layout_width="match_parent"
            android:layout_height="180dp"
            android:gravity="center"
+           android:orientation="vertical"
            android:background="@color/FondoMainActivity">
+           <Switch
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/favorito"
+               android:text="@string/Favorito"
+               android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+               android:textStyle="bold|normal"
+               android:textSize="14sp"
+               android:textColor="@color/LetrasMainActivity"
+               android:layout_gravity="end"/>
            <ImageView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"

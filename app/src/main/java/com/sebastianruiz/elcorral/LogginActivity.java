@@ -1,10 +1,14 @@
 package com.sebastianruiz.elcorral;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +22,10 @@ public class LogginActivity extends AppCompatActivity {
     String usuario= " ", password =" ", correo= " ";
     String PREFS_NAME = "MyPrefsFile";
     SharedPreferences datos;
+    Datos_DB usuarios;
+
+    SQLiteDatabase dbUsuarios;
+    //ContentValues dataDB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +53,8 @@ public class LogginActivity extends AppCompatActivity {
         password = datos.getString("password","-1");
 
 
+        usuarios= new Datos_DB(this, "DatosDB", null, 1);
+        dbUsuarios = usuarios.getWritableDatabase();
 
 
     }
@@ -61,13 +71,40 @@ public class LogginActivity extends AppCompatActivity {
      }
 
     public void LoggIn(View view){
+
         if ( (eUsuario.getText().toString().matches("")) || ( ePassword.getText().toString().matches("") ) ){
             Toast.makeText(this,R.string.faltan_datos,Toast.LENGTH_SHORT).show();
         }
-        else if (!eUsuario.getText().toString().matches(usuario) || (!ePassword.getText().toString().matches(password)) ){
+        else{
+            Cursor c = dbUsuarios.rawQuery("select * from usuarios where usuario='"+eUsuario.getText().toString()+
+                    "'",null);
+
+
+            if (c.moveToFirst()){
+                Log.d("usuario", c.getString(1));
+                Log.d("contrasenna", c.getString(2));
+                if(ePassword.getText().toString().matches(c.getString(2))){
+                    Intent intent = new Intent(this,MainActivity.class);
+
+                    SharedPreferences.Editor edit = datos.edit();
+                    edit.putInt("Loggeado",1);
+                    edit.putString("usuario",c.getString(1));
+                    edit.putString("password",c.getString(2));
+                    edit.putString("correo",c.getString(3));
+                    edit.commit();
+                    edit.commit();
+                    startActivity(intent);
+                    finish();
+                }
+            }
+            else {
+                Toast.makeText(this,getString(R.string.incorrecto),Toast.LENGTH_SHORT).show();
+            }
+        }
+  /*      else if (!eUsuario.getText().toString().matches(usuario) || (!ePassword.getText().toString().matches(password)) ){
             Toast.makeText(this,getString(R.string.incorrecto),Toast.LENGTH_SHORT).show();
         }
-        else {
+   /*     else {
             Intent intent = new Intent(this,MainActivity.class);
 
             SharedPreferences.Editor edit = datos.edit();
@@ -75,7 +112,7 @@ public class LogginActivity extends AppCompatActivity {
             edit.commit();
             startActivity(intent);
             finish();
-        }
+        }*/
 
     }
 }

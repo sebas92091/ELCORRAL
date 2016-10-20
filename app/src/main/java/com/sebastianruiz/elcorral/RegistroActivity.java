@@ -1,8 +1,10 @@
 package com.sebastianruiz.elcorral;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +17,9 @@ public class RegistroActivity extends AppCompatActivity {
     Button bAceptar, bCancelar;
     String PREFS_NAME = "MyPrefsFile";
     SharedPreferences datos;
+    Datos_DB usuarios;
+    SQLiteDatabase dbUsuarios;
+    ContentValues dataDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +36,8 @@ public class RegistroActivity extends AppCompatActivity {
 
         datos = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
-
+        usuarios= new Datos_DB(this, "DatosDB", null, 1);
+        dbUsuarios = usuarios.getWritableDatabase();
 
     }
 
@@ -56,6 +62,14 @@ public class RegistroActivity extends AppCompatActivity {
                     edit.putString("password",ePassword.getText().toString());
                     edit.putString("correo",eCorreo.getText().toString());
                     edit.commit();
+
+                    dataDB = new ContentValues();
+                    dataDB.put("usuario", eUsuario.getText().toString());
+                    dataDB.put("contrasenna" ,ePassword.getText().toString());
+                    dataDB.put("correo",eCorreo.getText().toString());
+
+                    dbUsuarios.insert("usuarios",null,dataDB);
+
 
                     i.putExtra("usuario",eUsuario.getText().toString());
                     i.putExtra("password",ePassword.getText().toString());

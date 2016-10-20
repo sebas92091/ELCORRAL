@@ -1,8 +1,11 @@
 package com.sebastianruiz.elcorral;
 
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -28,6 +31,10 @@ public class fragment_Promociones extends Fragment {
 
     private Comida[] datos;
     private ListView list;
+    private Datos_DB usuarios;
+    private SQLiteDatabase dbUsuarios;
+    private String promo1, promo2, promo3, promo4, promo5;
+   // private ContentValues dataDB;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,13 +42,38 @@ public class fragment_Promociones extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment__promociones, container, false);
 
-        datos = new Comida[]{
-                new Comida(9500,"Corralisima 1/2 Libra",R.drawable.media_libra),
-                new Comida(11500,"Corralisima",R.drawable.corralisima),
-                new Comida(7500,"Brownie con helado",R.drawable.brownie_con_helado),
-                new Comida(8500,"Malteada mediana",R.drawable.malteada_mediana),
-                new Comida(5500,"Anillos de cebolla 1/2 Libra",R.drawable.anillos_de_cebolla)
-        };
+        usuarios= new Datos_DB(getActivity(), "DatosDB", null, 1);
+        dbUsuarios = usuarios.getWritableDatabase();
+        Cursor c = dbUsuarios.rawQuery("select * from productos where id='"+1+"'",null);
+        c.moveToFirst();
+        Comida c1 = new Comida(Integer.valueOf(c.getString(3)),c.getString(1),R.drawable.media_libra);
+        promo1 = c.getString(2);
+
+         c = dbUsuarios.rawQuery("select * from productos where id='"+2+"'",null); c.moveToFirst();
+        Comida c2 = new Comida(Integer.valueOf(c.getString(3)),c.getString(1),R.drawable.corralisima);
+        promo2 = c.getString(2);
+
+         c = dbUsuarios.rawQuery("select * from productos where id='"+3+"'",null); c.moveToFirst();
+        Comida c3 = new Comida(Integer.valueOf(c.getString(3)),c.getString(1),R.drawable.brownie_con_helado);
+        promo3 = c.getString(2);
+
+         c = dbUsuarios.rawQuery("select * from productos where id='"+4+"'",null); c.moveToFirst();
+        Comida c4 = new Comida(Integer.valueOf(c.getString(3)),c.getString(1),R.drawable.malteada_mediana);
+        promo4 = c.getString(2);
+
+         c = dbUsuarios.rawQuery("select * from productos where id='"+5+"'",null); c.moveToFirst();
+        Comida c5 = new Comida(Integer.valueOf(c.getString(3)),c.getString(1),R.drawable.anillos_de_cebolla);
+        promo5 = c.getString(2);
+
+
+        datos = new Comida[]{ c1,c2,c3,c4,c5 };
+
+     /*           {new Comida(Integer.valueOf(c.getString(3)),c.getString(1),R.drawable.media_libra),
+                new Comida(Integer.valueOf(c.move(2)),"Corralisima",R.drawable.corralisima),
+                new Comida(Integer.valueOf(c.getString(3)),"Brownie con helado",R.drawable.brownie_con_helado),
+                new Comida(Integer.valueOf(c.getString(3)),"Malteada mediana",R.drawable.malteada_mediana),
+                new Comida(Integer.valueOf(c.getString(3)),"Anillos de cebolla 1/2 Libra",R.drawable.anillos_de_cebolla)
+        };*/
 
         AdaptadorPromo adaptador = new AdaptadorPromo(view.getContext(), datos);
         list = (ListView) view.findViewById(R.id.rPromo);
@@ -61,19 +93,19 @@ public class fragment_Promociones extends Fragment {
 
                 switch (position){
                     case 0:
-                        editor.putString("descripcionPromo",getString(R.string.corralisimaMediaLibra_promo));
+                        editor.putString("descripcionPromo",promo1);
                         break;
                     case 1:
-                        editor.putString("descripcionPromo",getString(R.string.corralisima_promo));
+                        editor.putString("descripcionPromo",promo2);
                         break;
                     case 2:
-                        editor.putString("descripcionPromo",getString(R.string.brownieConHelado_promo));
+                        editor.putString("descripcionPromo",promo3);
                         break;
                     case 3:
-                        editor.putString("descripcionPromo",getString(R.string.malteadaMediana_promo));
+                        editor.putString("descripcionPromo",promo4);
                         break;
                     case 4:
-                        editor.putString("descripcionPromo",getString(R.string.anillosDeCebolla_promo));
+                        editor.putString("descripcionPromo",promo5);
                         break;
                     default:
 
