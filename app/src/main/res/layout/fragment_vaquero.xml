@@ -4,41 +4,21 @@
     android:layout_height="match_parent"
     tools:context="com.sebastianruiz.elcorral.VaqueroFragment">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/vaqueros"
-            android:scaleType="fitXY"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/fondo3">
+            android:background="@color/colorFondo_Letrero"/>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/cinco1"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/vaquero"/>
-        </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/fondo3"></LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+        <ListView
+            android:id="@+id/lVaqueros"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 
 
 </FrameLayout>

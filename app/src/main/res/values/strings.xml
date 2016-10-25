@@ -30,6 +30,34 @@
         Light, Macadamia, Café,Café Mocca, Fresa, Vainilla, Piña,Arequipe.
         Preparadas con helado super premium Von Glacet Para disfrutar con cuchara.</string>
 
+    <!-- descripcion productos-->
+    <string name="corralisima_descripcion">Tres cuartos de libra canre de res asada a la
+        parrila, con salsa BBQ.</string>
+
+    <string name="corralisimaCasera_descripcion">Un tercio de libra de carne de res, con queso
+    americano, cebolla roja recien cortada, tomate y lechuga fresca</string>
+
+    <string name="corralisimaTodoterreno_descripcion">Dos porciones de un cuarto de libra de carne
+        de res asada a la parrilla, con tocineta, queso mozzarela, vegetales, pepinillos y salsa
+        BBQ.</string>
+
+    <string name="Vaquero_descripcion">Con queso mozzarella, tocineta, cebolla picada, papas chips
+        tritutadas y salsas.</string>
+
+    <string name="malteadaPequenna_descripcion">Chocolate, Chocolate Light, Frutos del bosque,
+        macadamia, café, café mocca, fresa, vainilla, piña, arequipe. Preparadas con helado super
+        premium von glacet. Para disfrutar con cuchara.</string>
+
+    <string name="pie_descripcion">Crocante corteza de hojaldre rellena de deliciosa manzana o limnon.</string>
+
+    <string name="papasEspiral_descripcion">Deliciosas papas en forma de espiral crujientes y frescas.</string>
+
+    <string name="papasALaFrancesa_descripcion">Las papas más crocantes y deliciosas, para que armes
+        tu menú como más te guste.</string>
+
+    <string name="LomitosDePollo_descripcion">De pechuga de pollo apanados y servidos en 5 u 8
+        unidades acompañados de miel mostaza.</string>
+
 
     <string name="Promociones">Promociones</string>
     <string name="hUsuario">Usuario</string>
@@ -37,5 +65,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Favorito">Favorito</string>
+    <string name="Hamurguesas">Hamburguesas</string>
 
 </resources>

@@ -47,23 +47,23 @@ public class fragment_Promociones extends Fragment {
         Cursor c = dbUsuarios.rawQuery("select * from productos where id='"+1+"'",null);
         c.moveToFirst();
         Comida c1 = new Comida(Integer.valueOf(c.getString(3)),c.getString(1),R.drawable.media_libra);
-        promo1 = c.getString(2);
+        promo1 = getString(c.getInt(2));
 
          c = dbUsuarios.rawQuery("select * from productos where id='"+2+"'",null); c.moveToFirst();
         Comida c2 = new Comida(Integer.valueOf(c.getString(3)),c.getString(1),R.drawable.corralisima);
-        promo2 = c.getString(2);
+        promo2 = getString(c.getInt(2));
 
          c = dbUsuarios.rawQuery("select * from productos where id='"+3+"'",null); c.moveToFirst();
         Comida c3 = new Comida(Integer.valueOf(c.getString(3)),c.getString(1),R.drawable.brownie_con_helado);
-        promo3 = c.getString(2);
+        promo3 = getString(c.getInt(2));
 
          c = dbUsuarios.rawQuery("select * from productos where id='"+4+"'",null); c.moveToFirst();
         Comida c4 = new Comida(Integer.valueOf(c.getString(3)),c.getString(1),R.drawable.malteada_mediana);
-        promo4 = c.getString(2);
+        promo4 = getString(c.getInt(2));
 
          c = dbUsuarios.rawQuery("select * from productos where id='"+5+"'",null); c.moveToFirst();
         Comida c5 = new Comida(Integer.valueOf(c.getString(3)),c.getString(1),R.drawable.anillos_de_cebolla);
-        promo5 = c.getString(2);
+        promo5 = getString(c.getInt(2));
 
 
         datos = new Comida[]{ c1,c2,c3,c4,c5 };
